@@ -1,11 +1,21 @@
-import type { Metadata } from 'next'
-import ThemeProvider from './components/ThemeProvider'
-import './globals.css'
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Refactoring Workshop',
-  description: 'Next.js refactoring workshop application',
-}
+import type { Metadata } from 'next'
+import './globals.css'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const theme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: '#dc004e',
+    },
+  },
+});
 
 export default function RootLayout({
   children,
@@ -15,7 +25,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
           {children}
         </ThemeProvider>
       </body>
