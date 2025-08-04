@@ -1,6 +1,6 @@
-"use client";
+"use client"
 
-import { Add as AddIcon } from "@mui/icons-material";
+import { Add as AddIcon } from "@mui/icons-material"
 import {
   Alert,
   Box,
@@ -13,21 +13,21 @@ import {
   Pagination,
   Snackbar,
   Typography,
-} from "@mui/material";
+} from "@mui/material"
 
-import DateInfoCard from "./components/DateInfoCard";
-import Header from "./components/Header";
-import PostCard from "./components/PostCard";
-import PostDialog from "./components/PostDialog";
-import SearchSection from "./components/SearchSection";
-import { useBlogData } from "./hooks/useBlogData";
-import { useBlogFilters } from "./hooks/useBlogFilters";
-import { useBlogUI } from "./hooks/useBlogUI";
-import { useDateHelpers } from "./hooks/useDateHelpers";
+import DateInfoCard from "./components/DateInfoCard"
+import Header from "./components/Header"
+import PostCard from "./components/PostCard"
+import PostDialog from "./components/PostDialog"
+import SearchSection from "./components/SearchSection"
+import { useBlogData } from "./hooks/useBlogData"
+import { useBlogFilters } from "./hooks/useBlogFilters"
+import { useBlogUI } from "./hooks/useBlogUI"
+import { useDateHelpers } from "./hooks/useDateHelpers"
 
 export default function BlogViewer() {
-  const { posts, loading, error, refreshPosts, getUserById } = useBlogData();
-  const { getDateInfo, getPostDateInfo } = useDateHelpers();
+  const { posts, loading, error, refreshPosts, getUserById } = useBlogData()
+  const { getPostDateInfo } = useDateHelpers()
   const {
     searchTerm,
     setSearchTerm,
@@ -45,19 +45,18 @@ export default function BlogViewer() {
     handleDialogClose,
     handleSnackbarClose,
     showSnackbar,
-  } = useBlogUI();
+  } = useBlogUI()
 
-  const { getPaginatedPosts } = useBlogFilters(posts, searchTerm);
+  const { getPaginatedPosts } = useBlogFilters(posts, searchTerm)
 
-  const { currentPosts, totalPages, totalCount } =
-    getPaginatedPosts(currentPage);
+  const { currentPosts, totalPages, totalCount } = getPaginatedPosts(currentPage)
 
   const handleRefresh = async () => {
-    const success = await refreshPosts();
+    const success = await refreshPosts()
     if (success) {
-      showSnackbar();
+      showSnackbar()
     }
-  };
+  }
 
   if (loading) {
     return (
@@ -67,7 +66,7 @@ export default function BlogViewer() {
           <Typography>投稿を読み込み中...</Typography>
         </Box>
       </Container>
-    );
+    )
   }
 
   return (
@@ -94,9 +93,9 @@ export default function BlogViewer() {
         {/* 投稿一覧 */}
         <Grid container spacing={3}>
           {currentPosts.map((post) => {
-            const author = getUserById(post.userId);
-            const postDateInfo = getPostDateInfo(post.id);
-            const isFavorite = favorites.includes(post.id);
+            const author = getUserById(post.userId)
+            const postDateInfo = getPostDateInfo(post.id)
+            const isFavorite = favorites.includes(post.id)
 
             return (
               <Grid size={{ xs: 12, md: 6, lg: 4 }} key={post.id}>
@@ -109,7 +108,7 @@ export default function BlogViewer() {
                   onFavorite={handleFavorite}
                 />
               </Grid>
-            );
+            )
           })}
         </Grid>
 
@@ -126,30 +125,18 @@ export default function BlogViewer() {
         )}
 
         {/* フローティングアクションボタン */}
-        <Fab
-          color="primary"
-          aria-label="add"
-          sx={{ position: "fixed", bottom: 16, right: 16 }}
-        >
+        <Fab color="primary" aria-label="add" sx={{ position: "fixed", bottom: 16, right: 16 }}>
           <AddIcon />
         </Fab>
 
         {/* フィルターメニュー */}
-        <Menu
-          anchorEl={filterAnchorEl}
-          open={Boolean(filterAnchorEl)}
-          onClose={handleFilterClose}
-        >
+        <Menu anchorEl={filterAnchorEl} open={Boolean(filterAnchorEl)} onClose={handleFilterClose}>
           <MenuItem onClick={handleFilterClose}>最新順</MenuItem>
           <MenuItem onClick={handleFilterClose}>人気順</MenuItem>
           <MenuItem onClick={handleFilterClose}>お気に入りのみ</MenuItem>
         </Menu>
 
-        <PostDialog
-          open={dialogOpen}
-          selectedPost={selectedPost}
-          onClose={handleDialogClose}
-        />
+        <PostDialog open={dialogOpen} selectedPost={selectedPost} onClose={handleDialogClose} />
 
         {/* スナックバー */}
         <Snackbar
@@ -160,5 +147,5 @@ export default function BlogViewer() {
         />
       </Container>
     </Box>
-  );
+  )
 }

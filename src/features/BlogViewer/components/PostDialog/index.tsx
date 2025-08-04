@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Box,
@@ -8,32 +8,27 @@ import {
   DialogContent,
   DialogTitle,
   Typography,
-} from "@mui/material";
-import { useDateHelpers } from "../../hooks/useDateHelpers";
+} from "@mui/material"
+import { useDateHelpers } from "../../hooks/useDateHelpers"
 
 interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
+  id: number
+  title: string
+  body: string
+  userId: number
 }
 
 interface Props {
-  open: boolean;
-  selectedPost: Post | null;
-  onClose: () => void;
+  open: boolean
+  selectedPost: Post | null
+  onClose: () => void
 }
 
 export default function PostDialog({ open, selectedPost, onClose }: Props) {
-  const { getPostDateInfo } = useDateHelpers();
+  const { getPostDateInfo } = useDateHelpers()
 
   return (
-    <Dialog
-      open={open}
-      onClose={onClose}
-      maxWidth="md"
-      fullWidth
-    >
+    <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       {selectedPost && (
         <>
           <DialogTitle>{selectedPost.title}</DialogTitle>
@@ -54,5 +49,5 @@ export default function PostDialog({ open, selectedPost, onClose }: Props) {
         </>
       )}
     </Dialog>
-  );
+  )
 }

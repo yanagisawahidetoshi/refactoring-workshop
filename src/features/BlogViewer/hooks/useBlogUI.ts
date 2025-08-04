@@ -1,47 +1,45 @@
-import { useState } from 'react';
-import { Post } from './useBlogData';
+import { useState } from "react"
+import type { Post } from "./useBlogData"
 
 export const useBlogUI = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterAnchorEl, setFilterAnchorEl] = useState<null | HTMLElement>(null);
-  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [searchTerm, setSearchTerm] = useState("")
+  const [filterAnchorEl, setFilterAnchorEl] = useState<null | HTMLElement>(null)
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null)
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [snackbarOpen, setSnackbarOpen] = useState(false)
+  const [favorites, setFavorites] = useState<number[]>([])
 
   const handlePostClick = (post: Post) => {
-    setSelectedPost(post);
-    setDialogOpen(true);
-  };
+    setSelectedPost(post)
+    setDialogOpen(true)
+  }
 
   const handleFavorite = (postId: number) => {
-    setFavorites(prev => 
-      prev.includes(postId) 
-        ? prev.filter(id => id !== postId)
-        : [...prev, postId]
-    );
-  };
+    setFavorites((prev) =>
+      prev.includes(postId) ? prev.filter((id) => id !== postId) : [...prev, postId],
+    )
+  }
 
   const handleFilterClick = (event: React.MouseEvent<HTMLElement>) => {
-    setFilterAnchorEl(event.currentTarget);
-  };
+    setFilterAnchorEl(event.currentTarget)
+  }
 
   const handleFilterClose = () => {
-    setFilterAnchorEl(null);
-  };
+    setFilterAnchorEl(null)
+  }
 
   const handleDialogClose = () => {
-    setDialogOpen(false);
-  };
+    setDialogOpen(false)
+  }
 
   const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-  };
+    setSnackbarOpen(false)
+  }
 
   const showSnackbar = () => {
-    setSnackbarOpen(true);
-  };
+    setSnackbarOpen(true)
+  }
 
   return {
     searchTerm,
@@ -59,6 +57,6 @@ export const useBlogUI = () => {
     handleFilterClose,
     handleDialogClose,
     handleSnackbarClose,
-    showSnackbar
-  };
-};
+    showSnackbar,
+  }
+}

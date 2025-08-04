@@ -1,10 +1,10 @@
-"use client";
+"use client"
 
 import {
   FilterList as FilterIcon,
   Refresh as RefreshIcon,
   Search as SearchIcon,
-} from "@mui/icons-material";
+} from "@mui/icons-material"
 import {
   Box,
   Button,
@@ -13,14 +13,14 @@ import {
   InputAdornment,
   TextField,
   Typography,
-} from "@mui/material";
+} from "@mui/material"
 
 interface Props {
-  searchTerm: string;
-  setSearchTerm: (term: string) => void;
-  onFilterClick: (event: React.MouseEvent<HTMLElement>) => void;
-  onRefresh: () => void;
-  totalCount: number;
+  searchTerm: string
+  setSearchTerm: (term: string) => void
+  onFilterClick: (event: React.MouseEvent<HTMLElement>) => void
+  onRefresh: () => void
+  totalCount: number
 }
 
 export default function SearchSection({
@@ -54,18 +54,10 @@ export default function SearchSection({
               ),
             }}
           />
-          <Button
-            variant="outlined"
-            startIcon={<FilterIcon />}
-            onClick={onFilterClick}
-          >
+          <Button variant="outlined" startIcon={<FilterIcon />} onClick={onFilterClick}>
             フィルター
           </Button>
-          <Button
-            variant="outlined"
-            startIcon={<RefreshIcon />}
-            onClick={onRefresh}
-          >
+          <Button variant="outlined" startIcon={<RefreshIcon />} onClick={onRefresh}>
             更新
           </Button>
         </Box>
@@ -74,5 +66,5 @@ export default function SearchSection({
         </Typography>
       </CardContent>
     </Card>
-  );
+  )
 }

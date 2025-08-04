@@ -1,5 +1,5 @@
-import BlogViewer from '@/features/BlogViewer';
+import BlogViewer from "@/features/BlogViewer"
 
 export default function Home() {
-  return <BlogViewer />;
+  return <BlogViewer />
 }

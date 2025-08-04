@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   Comment as CommentIcon,
@@ -6,7 +6,7 @@ import {
   Person as PersonIcon,
   Schedule as ScheduleIcon,
   Share as ShareIcon,
-} from "@mui/icons-material";
+} from "@mui/icons-material"
 import {
   Avatar,
   Box,
@@ -17,37 +17,37 @@ import {
   Chip,
   IconButton,
   Typography,
-} from "@mui/material";
+} from "@mui/material"
 
 interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  phone: string;
-  website: string;
+  id: number
+  name: string
+  username: string
+  email: string
+  phone: string
+  website: string
 }
 
 interface Post {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
+  id: number
+  title: string
+  body: string
+  userId: number
 }
 
 interface PostDateInfo {
-  formatted: string;
-  relative: string;
-  isRecent: boolean;
+  formatted: string
+  relative: string
+  isRecent: boolean
 }
 
 interface Props {
-  post: Post;
-  author: User | undefined;
-  postDateInfo: PostDateInfo;
-  isFavorite: boolean;
-  onPostClick: (post: Post) => void;
-  onFavorite: (postId: number) => void;
+  post: Post
+  author: User | undefined
+  postDateInfo: PostDateInfo
+  isFavorite: boolean
+  onPostClick: (post: Post) => void
+  onFavorite: (postId: number) => void
 }
 
 export default function PostCard({
@@ -85,9 +85,7 @@ export default function PostCard({
             </Typography>
           </Box>
           <Box sx={{ ml: "auto" }}>
-            {postDateInfo.isRecent && (
-              <Chip label="新着" color="success" size="small" />
-            )}
+            {postDateInfo.isRecent && <Chip label="新着" color="success" size="small" />}
           </Box>
         </Box>
 
@@ -95,11 +93,7 @@ export default function PostCard({
           {post.title}
         </Typography>
 
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          sx={{ mb: 2 }}
-        >
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
           {post.body.substring(0, 100)}...
         </Typography>
 
@@ -137,5 +131,5 @@ export default function PostCard({
         </IconButton>
       </CardActions>
     </Card>
-  );
+  )
 }
