@@ -1,15 +1,7 @@
-"use client";
+"use client"
 
-import { Notifications as NotificationsIcon } from "@mui/icons-material";
-import {
-  AppBar,
-  Badge,
-  Button,
-  IconButton,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Notifications as NotificationsIcon } from "@mui/icons-material"
+import { AppBar, Badge, Button, IconButton, Toolbar, Tooltip, Typography } from "@mui/material"
 
 export default function Header() {
   return (
@@ -28,5 +20,5 @@ export default function Header() {
         <Button color="inherit">ログイン</Button>
       </Toolbar>
     </AppBar>
-  );
+  )
 }
