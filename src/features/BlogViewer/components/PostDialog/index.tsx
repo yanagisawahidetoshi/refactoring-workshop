@@ -9,7 +9,7 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
-import { useDateHelpers } from "../hooks/useDateHelpers";
+import { useDateHelpers } from "../../hooks/useDateHelpers";
 
 interface Post {
   id: number;
