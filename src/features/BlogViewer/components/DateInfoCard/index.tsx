@@ -2,7 +2,7 @@
 
 import { Schedule as ScheduleIcon } from "@mui/icons-material";
 import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
-import { useDateHelpers } from "../hooks/useDateHelpers";
+import { useDateHelpers } from "../../hooks/useDateHelpers";
 
 export default function DateInfoCard() {
   const { getDateInfo } = useDateHelpers();

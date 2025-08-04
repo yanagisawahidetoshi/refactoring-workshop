@@ -1,4 +1,4 @@
-import BlogViewer from '../components/BlogViewer';
+import BlogViewer from '@/features/BlogViewer';
 
 export default function Home() {
   return <BlogViewer />;
