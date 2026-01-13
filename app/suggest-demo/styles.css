@@ -1,0 +1,41 @@
+/* app/suggest-demo/styles.css */
+
+.container {
+  font-family: sans-serif;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.loading {
+  padding: 8px 0;
+  color: #888;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 8px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+}
+
+.suggestions-list li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestions-list li:last-child {
+  border-bottom: none;
+}
